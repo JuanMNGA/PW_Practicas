@@ -29,7 +29,7 @@
               for($j=1;$j<10;$j++){
                   echo "<option value=\"$j+1\">$j";
               }
-              echo '<option value="10">NS/NC';
+              echo '<option value="11">NS/NC';
               echo '</select><br>';
             break;
           }
