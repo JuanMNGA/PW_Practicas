@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-10-2015 a las 11:57:11
+-- Tiempo de generación: 29-10-2015 a las 20:15:38
 -- Versión del servidor: 5.6.26
 -- Versión de PHP: 5.6.12
 
@@ -82,16 +82,41 @@ CREATE TABLE IF NOT EXISTS `preguntas` (
   `pregunta` text NOT NULL,
   `tipo` int(11) NOT NULL,
   `descripcion` text
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `preguntas`
 --
 
 INSERT INTO `preguntas` (`id`, `id_dimension`, `pregunta`, `tipo`, `descripcion`) VALUES
-(1, 1, 'Sexo', 1, ''),
-(2, 1, 'Edad', 2, 'Rango de edades'),
-(3, 1, 'Indique el grado de satisfacción con el sistema de búsqueda de documentos de la biblioteca.', 3, NULL);
+(1, 1, 'Tipo de usuario', 1, 'PAS, Profesor, Estudiante'),
+(2, 1, 'Titulación', 2, 'Grado al que pertenece'),
+(3, 1, 'Biblioteca a evaluar', 3, 'Biblioteca que será evaluada'),
+(4, 1, 'Sexo', 4, ''),
+(5, 1, 'Edad', 6, 'Rango de edades'),
+(27, 2, 'El personal me inspira confianza', 5, NULL),
+(28, 2, 'El personal me ofrece atención personalizada', 5, NULL),
+(29, 2, 'El personal es amable en el trato con los estudiantes', 5, NULL),
+(30, 2, 'El personal muestra buena disposición para responder a las preguntas planteadas', 5, NULL),
+(31, 2, 'El personal tiene conocimiento y es capaz de responder a las preguntas que se le formulan', 5, NULL),
+(32, 2, 'El personal atiende amablemente a los usuarios', 5, NULL),
+(33, 2, 'El personal comprende las necesidades de los usuarios', 5, NULL),
+(34, 2, 'El personal manifiesta voluntad de ayudar a los usuarios', 5, NULL),
+(35, 2, 'El personal muestra fiabilidad en el tratamiento de los problemas del servicio manifestados por los usuarios', 5, NULL),
+(36, 3, 'Los espacios de la biblioteca inspiran el estudio y el aprendizaje', 5, NULL),
+(37, 3, 'Existen espacios tranquilos para estudio individual', 5, NULL),
+(38, 3, 'El espacio de la biblioteca es un lugar confortable y acogedor', 5, NULL),
+(39, 3, 'La biblioteca es un lugar adecuado para estudio, aprendizaje o investigación', 5, NULL),
+(40, 3, 'Existen espacios colectivos para aprendizaje y estudio en grupo', 5, NULL),
+(41, 4, 'El acceso a los recursos electrónicos es factible desde mi casa o despacho', 5, NULL),
+(42, 4, 'El sitio web de la biblioteca permite encontrar información por uno mismo', 5, NULL),
+(43, 4, 'Los materiales impresos de la biblioteca cubren las necesidades de información que tengo', 5, NULL),
+(44, 4, 'Los recursos digitales cubren las necesidades de información que tengo', 5, NULL),
+(45, 4, 'El equipamiento es moderno y me permite un acceso fácil a la información que necesito', 5, NULL),
+(46, 4, 'Los instrumentos para la recuperación de información (catálogos, bases de datos, ...) son fáciles de usar y me permiten encontrar por mí mismo lo que busco', 5, NULL),
+(47, 4, 'Puedo acceder fácilmente a la información para procesarla y usarla en mis tareas', 5, NULL),
+(48, 4, 'Las revistas en versión electrónica y/o impresa cubren mis necesidades de información', 5, NULL),
+(49, 5, 'Observaciones/Comentarios', 7, NULL);
 
 -- --------------------------------------------------------
 
@@ -116,14 +141,18 @@ CREATE TABLE IF NOT EXISTS `secciones` (
   `id` int(11) NOT NULL,
   `id_estudios` int(11) NOT NULL,
   `descripcion` text NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `secciones`
 --
 
 INSERT INTO `secciones` (`id`, `id_estudios`, `descripcion`) VALUES
-(1, 1, 'Preguntas personales');
+(1, 1, 'Preguntas personales'),
+(2, 1, 'Valor afectivo del usuario'),
+(3, 1, 'La biblioteca como espacio'),
+(4, 1, 'Control de la información'),
+(5, 1, 'Otros');
 
 --
 -- Índices para tablas volcadas
@@ -199,7 +228,7 @@ ALTER TABLE `estudios`
 -- AUTO_INCREMENT de la tabla `preguntas`
 --
 ALTER TABLE `preguntas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=50;
 --
 -- AUTO_INCREMENT de la tabla `respuestas`
 --
@@ -209,7 +238,7 @@ ALTER TABLE `respuestas`
 -- AUTO_INCREMENT de la tabla `secciones`
 --
 ALTER TABLE `secciones`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- Restricciones para tablas volcadas
 --

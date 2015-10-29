@@ -29,6 +29,11 @@
 		return $consulta;
 	}
 
+	function obtener_estudios(){
+		$consulta = mysql_query("SELECT * FROM `estudios`");
+		return $consulta;
+	}
+
 	function enviar_respuestas($id_encuesta, $id_pregunta, $respuesta){
 		$consulta = mysql_query("INSERT INTO `respuestas`(`id_encuesta_rellena`,`id_pregunta`,`respuesta`) VALUES ('".$id_encuesta."','".$id_pregunta."','".$respuesta."')");
 	}

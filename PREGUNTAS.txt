@@ -2,8 +2,38 @@ Preguntas por secciones:
 
 Personales:
 
-Centro:
+Tipo de usuario: PAS, Estudiante, Profesor (Tipo 1)
+Titulación (Tipo 2)
+Biblioteca a evaluar (Tipo 3)
+Sexo (Tipo 4)
+Edad (Tipo 6)
 
-PAS:
+Valor afectivo del usuario: (Tipo 5)
+El personal me inspira confianza
+El personal me ofrece atención personalizada
+El personal es amable en el trato con los estudiantes
+El personal muestra buena disposición para responder a las preguntas planteadas
+El personal tiene conocimiento y es capaz de responder a las preguntas que se le formulan
+El personal atiende amablemente a los usuarios
+El personal comprende las necesidades de los usuarios
+El personal manifiesta voluntad de ayudar a los usuarios
+El personal muestra fiabilidad en el tratamiento de los problemas del servicio manifestados por los usuarios	
 
-Calidad de la documentacion:
+La biblioteca como espacio: (Tipo 5)
+Los espacios de la biblioteca inspiran el estudio y el aprendizaje
+Existen espacios tranquilos para estudio individual
+El espacio de la biblioteca es un lugar confortable y acogedor
+La biblioteca es un lugar adecuado para estudio, aprendizaje o investigación
+Existen espacios colectivos para aprendizaje y estudio en grupo
+
+Control de la información: (Tipo 5)
+El acceso a los recursos electrónicos es factible desde mi casa o despacho
+El sitio web de la biblioteca permite encontrar información por uno mismo
+Los materiales impresos de la biblioteca cubren las necesidades de información que tengo
+Los recursos digitales cubren las necesidades de información que tengo
+El equipamiento es moderno y me permite un acceso fácil a la información que necesito
+Los instrumentos para la recuperación de información (catálogos, bases de datos, ...) son fáciles de usar y me permiten encontrar por mí mismo lo que busco
+Puedo acceder fácilmente a la información para procesarla y usarla en mis tareas
+Las revistas en versión electrónica y/o impresa cubren mis necesidades de información
+
+Quejas:
