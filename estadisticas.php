@@ -10,7 +10,7 @@
 				error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
 
 				// Conectar con el servidor de base de datos
-				$conexion = @mysql_connect ("localhost", "root", "150787")
+				$conexion = @mysql_connect ("localhost", "root", "")
 					or die ("No se puede conectar con el servidor");
 
 				// Seleccionar base de datos
