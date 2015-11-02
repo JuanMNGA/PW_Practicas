@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.4.14
+-- version 4.4.15
 -- http://www.phpmyadmin.net
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 29-10-2015 a las 20:15:38
--- Versión del servidor: 5.6.26
--- Versión de PHP: 5.6.12
+-- Servidor: localhost
+-- Tiempo de generación: 02-11-2015 a las 11:52:44
+-- Versión del servidor: 5.6.27
+-- Versión de PHP: 5.4.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -49,8 +49,20 @@ CREATE TABLE IF NOT EXISTS `encuestas_rellenas` (
   `id` int(11) NOT NULL,
   `id_estudios` int(11) NOT NULL,
   `hora_com` date NOT NULL,
-  `hora_fin` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `hora_fin` date NOT NULL,
+  `usuario` text NOT NULL,
+  `titulacion` text NOT NULL,
+  `biblioteca` text NOT NULL,
+  `sexo` text NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `encuestas_rellenas`
+--
+
+INSERT INTO `encuestas_rellenas` (`id`, `id_estudios`, `hora_com`, `hora_fin`, `usuario`, `titulacion`, `biblioteca`, `sexo`) VALUES
+(1, 1, '2015-11-02', '2015-11-03', 'Estudiante', 'Grado en Ingeniería Informática', 'Biblioteca ESI', 'Hombre'),
+(2, 1, '2015-11-02', '2015-11-04', 'Profesor', 'Grado en Ingeniería informática', 'Biblioteca CASEM', 'Mujer');
 
 -- --------------------------------------------------------
 
@@ -129,7 +141,15 @@ CREATE TABLE IF NOT EXISTS `respuestas` (
   `id_encuesta_rellena` int(11) NOT NULL,
   `id_pregunta` int(11) NOT NULL,
   `respuesta` text
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `respuestas`
+--
+
+INSERT INTO `respuestas` (`id`, `id_encuesta_rellena`, `id_pregunta`, `respuesta`) VALUES
+(2, 1, 27, 'Hola!'),
+(3, 2, 30, 'si');
 
 -- --------------------------------------------------------
 
@@ -218,7 +238,7 @@ ALTER TABLE `acceso`
 -- AUTO_INCREMENT de la tabla `encuestas_rellenas`
 --
 ALTER TABLE `encuestas_rellenas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `estudios`
 --
@@ -233,7 +253,7 @@ ALTER TABLE `preguntas`
 -- AUTO_INCREMENT de la tabla `respuestas`
 --
 ALTER TABLE `respuestas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT de la tabla `secciones`
 --
