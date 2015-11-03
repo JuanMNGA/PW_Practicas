@@ -44,6 +44,16 @@
 		return mysql_num_rows($consulta);	
 	}
 
+	function obtener_estadisticas(){
+		$consulta = "SELECT * FROM encuestas_rellenas ORDER BY id ASC";
+		return $consulta;
+	}
+	
+	function obtener_informe($usuario, $titulacion, $biblioteca, $sexo){
+		$consulta = "SELECT respuestas.id_pregunta,preguntas.pregunta,count(respuestas.id_pregunta),sum(respuestas.respuesta)/count(respuestas.id_pregunta) FROM respuestas,preguntas,encuestas_rellenas WHERE respuestas.id_pregunta=preguntas.id AND respuestas.id_encuesta_rellena=encuestas_rellenas.id AND encuestas_rellenas.usuario='$usuario' AND encuestas_rellenas.titulacion='$titulacion' AND encuestas_rellenas.biblioteca='$biblioteca' AND encuestas_rellenas.sexo='$sexo'GROUP BY id_pregunta";
+		return $consulta;
+	}
+
 	function enviar_todo(){
 		echo "HOLA";
 	}

@@ -1,3 +1,7 @@
+<?php
+  include('funciones.php');
+  conectar_bd();
+?>
 <html>
 <head>
     <meta content="text/html"; charset="utf-8" http-equiv="content-type"/>
@@ -15,33 +19,15 @@
 				
 				if (isset($enviar))
 				{
-
-					// Conectar con el servidor de base de datos
-					$conexion = @mysql_connect ("localhost", "root", "")
-				 		or die ("No se puede conectar con el servidor");
-
-					// Seleccionar base de datos
-					mysql_select_db ("encuesta_pw")
-				 		or die ("No se puede seleccionar la base de datos");
-				 		
-				 	mysql_query("SET NAMES 'UTF8'");
 		
-					// Enviar consulta
 					$usuario = $_POST['usuario'];
 					$titulacion = $_POST['titulacion'];
 					$biblioteca = $_POST['biblioteca'];
 					$sexo = $_POST['sexo'];
 							
-					$consulta = "SELECT respuestas.id_pregunta,preguntas.pregunta,count(respuestas.id_pregunta),sum(respuestas.respuesta)/count(respuestas.id_pregunta) 
-										FROM respuestas,preguntas,encuestas_rellenas 
-										WHERE respuestas.id_pregunta=preguntas.id AND respuestas.id_encuesta_rellena=encuestas_rellenas.id 
-										AND encuestas_rellenas.usuario='$usuario'
-										AND encuestas_rellenas.titulacion='$titulacion'
-										AND encuestas_rellenas.biblioteca='$biblioteca'
-										AND encuestas_rellenas.sexo='$sexo'
-										GROUP BY id_pregunta";
-														
-					$resultado = mysql_query($consulta, $conexion);
+					$consulta = obtener_informe($usuario, $titulacion, $biblioteca, $sexo);
+											
+					$resultado = mysql_query($consulta);
 						 
 					if ($row = mysql_fetch_array($resultado))
 					{ 
@@ -59,7 +45,7 @@
 					} 
 
 					// Cerrar conexión
-					mysql_close ($conexion);
+					mysql_close ();
 			?>
 			
 			<br>

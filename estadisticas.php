@@ -1,3 +1,7 @@
+<?php
+  include('funciones.php');
+  conectar_bd();
+?>
 <html>
 <head>
     <meta content="text/html"; charset="utf-8" http-equiv="content-type"/>
@@ -8,20 +12,10 @@
 			<h1>Estadísticas</h1>
 			<?php
 				error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
-
-				// Conectar con el servidor de base de datos
-				$conexion = @mysql_connect ("localhost", "root", "")
-					or die ("No se puede conectar con el servidor");
-
-				// Seleccionar base de datos
-				mysql_select_db ("encuesta_pw")
-					or die ("No se puede seleccionar la base de datos");
-				 
-				mysql_query("SET NAMES 'UTF8'");
-			
+									
 				// Enviar consulta
-				$consulta="SELECT * FROM encuestas_rellenas ORDER BY id ASC";
-				$resultado = mysql_query($consulta, $conexion);					 
+				$consulta = obtener_estadisticas();
+				$resultado = mysql_query($consulta);					 
 					 
 				if ($row = mysql_fetch_array($resultado))
 				{ 
@@ -39,7 +33,7 @@
 				}
 				
 				// Cerrar conexión
-				mysql_close ($conexion);
+				mysql_close ();
 			?>
 			<center>
 			<br>
