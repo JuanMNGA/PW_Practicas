@@ -33,8 +33,7 @@
       }
       for($i = 0; $i < mysql_num_rows($preguntas); $i++ ){
           $pregunta_actual = mysql_fetch_array($preguntas);
-          $pregunta_texto = $pregunta_actual["pregunta"];
-          echo "<div class=\"form_group\"><label for=\"exampleInputEmail1\">$pregunta_texto</label>";
+          echo "<div class=\"form_group\"><label for=\"exampleInputEmail1\">$pregunta_actual[\"pregunta\"]</label>";
           switch($pregunta_actual["tipo"]){
             case 1:
               echo "<select name=\"pregunta$i+1\"><br><option value=\"1\">PAS<option value=\"2\">Profesor<option value=\"3\" checked>Estudiante</select><br>";

@@ -49,7 +49,7 @@
 			?>
 			
 			<br>
-			<a href="index.php">Inicio</a>
+			<a href="../index.php">Inicio</a>
 			<a href="generarInforme.php">Seleccionar opciones</a>
 			<a href="estadisticas.php">Estadisticas</a>	
 			
@@ -107,7 +107,7 @@
 		<td><div align="center">
 		<input type="submit" name="enviar" value="Enviar formulario">
     	<br><br>
-    	<a href="index.php">Inicio</a>
+    	<a href="../index.php">Inicio</a>
     	<a href="estadisticas.php">Estadisticas</a>
 		<br>
 		</div></td>

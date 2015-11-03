@@ -37,7 +37,7 @@
 			?>
 			<center>
 			<br>
-			<a href="index.php">Inicio</a>
+			<a href="../index.php">Inicio</a>
 			<a href="generarInforme.php">Generar Informe</a>	
 			</center>
   </body>

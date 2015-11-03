@@ -1,5 +1,5 @@
 <?php
-  include('funciones.php');
+  include('../funciones.php');
   conectar_bd();
 ?>
 <html>
@@ -49,7 +49,7 @@
 			?>
 			
 			<br>
-			<a href="index.php">Inicio</a>
+			<a href="../index.php">Inicio</a>
 			<a href="generarInforme.php">Seleccionar opciones</a>
 			<a href="estadisticas.php">Estadisticas</a>	
 			
