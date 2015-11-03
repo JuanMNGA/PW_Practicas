@@ -1,0 +1,45 @@
+<?php
+  include('../funciones.php');
+  conectar_bd();
+?>
+<html>
+<head>
+    <meta content="text/html"; charset="utf-8" http-equiv="content-type"/>
+	<title>Estadisticas</title>
+</head>
+
+	<body>
+			<h1>Estadísticas</h1>
+			<?php
+				error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
+									
+				// Enviar consulta
+				$consulta = obtener_estadisticas();
+				$resultado = mysql_query($consulta);					 
+					 
+				if ($row = mysql_fetch_array($resultado))
+				{ 
+					echo "<table border = '1'> \n"; 
+					echo "<tr class=Arriba><td>id</td><td>id estudios</td><td>Usuario</td><td>Titulación</td><td>Biblioteca</td><td>Sexo</td><td>Hora de comienzo</td><td>Hora de finalización</td></tr> \n"; 
+					
+					do { 
+						echo "<tr><td>".$row[0]."</td><td>".$row[1]."</td><td>".$row[4]."</td><td>".$row[5]."</td><td>".$row[6]."</td><td>".$row[7]."</td><td>".$row[2]."</td><td>".$row[3]."</td></tr> \n"; 
+					} while ($row = mysql_fetch_array($resultado)); 
+					
+					echo "</table>\n"; 
+				} 
+				else { 
+					echo "¡No se ha encontrado ningún registro!"; 
+				}
+				
+				// Cerrar conexión
+				mysql_close ();
+			?>
+			<center>
+			<br>
+			<a href="index.php">Inicio</a>
+			<a href="generarInforme.php">Generar Informe</a>	
+			</center>
+  </body>
+</html>
+				

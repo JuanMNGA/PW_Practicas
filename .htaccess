@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "Control de Seguridad"
+AuthUserFile /opt/lampp/htdocs/PW_Practicas/privado/.htpasswd
+Require valid-user
