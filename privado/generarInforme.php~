@@ -76,7 +76,7 @@
 		Titulación:             
 		<td>
     		<select name="titulacion" size="1" style=" width:300px">
-        		<option value="Grado en Ingeniería Informática">Grado en Ingeniería informática</option>
+        		<option value="Grado en Ingeniería Informática">Grado en Ingeniería Informática</option>
 		</td>
 		</tr>
 		</table>
