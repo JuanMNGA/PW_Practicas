@@ -64,7 +64,7 @@
 		Tipo de usuario:                  
 		<td>
     		<select name="usuario" size="1" style=" width:300px">
-        		<option value="APS">APS</option>
+        		<option value="PAS">PAS</option>
         		<option value="Profesor">Profesor</option>
         		<option value="Estudiante">Estudiante</option>
 		</td>
@@ -76,7 +76,7 @@
 		Titulación:             
 		<td>
     		<select name="titulacion" size="1" style=" width:300px">
-        		<option value="Grado en Ingeniería informática">Grado en Ingeniería informática</option>
+        		<option value="Grado en Ingeniería Informática">Grado en Ingeniería Informática</option>
 		</td>
 		</tr>
 		</table>
