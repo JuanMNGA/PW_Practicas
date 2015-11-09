@@ -1,6 +1,7 @@
 <?php
   include('../funciones.php');
   conectar_bd();
+  redireccion("../login_info.php");
 ?>
 <html>
 <head>
@@ -107,7 +108,7 @@
 		<td><div align="center">
 		<input type="submit" name="enviar" value="Enviar formulario">
     	<br><br>
-    	<a href="index.php">Inicio</a>
+    	<a href="../index.php">Inicio</a>
     	<a href="estadisticas.php">Estadisticas</a>
 		<br>
 		</div></td>

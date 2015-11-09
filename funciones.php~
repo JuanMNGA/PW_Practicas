@@ -56,5 +56,9 @@
 	function enviar_todo(){
 		echo "HOLA";
 	}
+	
+	function redireccion($url){
+		header("Location: $url");
+	}
 
 ?>
