@@ -109,7 +109,7 @@
 		<input type="submit" name="enviar" value="Enviar formulario">
     	<br><br>
     	<a href="../index.php">Inicio</a>
-    	<a href="estadisticas.php">Estadisticas</a>
+    	<a href="estadisticas.php">Registros de encuestas</a>
 		<br>
 		</div></td>
             

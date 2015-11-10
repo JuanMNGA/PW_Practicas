@@ -77,6 +77,7 @@
 		<td>
     		<select name="titulacion" size="1" style=" width:300px">
         		<option value="Grado en Ingeniería Informática">Grado en Ingeniería Informática</option>
+        		<option value="Grado en Ingeniería Aeroespacial">Grado en Ingeniería Aeroespacial</option>
 		</td>
 		</tr>
 		</table>

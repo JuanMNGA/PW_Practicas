@@ -5,11 +5,11 @@
 <html>
 <head>
     <meta content="text/html"; charset="utf-8" http-equiv="content-type"/>
-	<title>Estadisticas</title>
+	<title>Registro de encuestas</title>
 </head>
 
 	<body>
-			<h1>Estadísticas</h1>
+			<h1>Log encuestas rellenas</h1>
 			<?php
 				error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
 									

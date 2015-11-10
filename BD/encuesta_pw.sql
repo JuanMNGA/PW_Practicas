@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.4.15
+-- version 4.5.0.2
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 02-11-2015 a las 11:52:44
--- Versión del servidor: 5.6.27
--- Versión de PHP: 5.4.30
+-- Tiempo de generación: 10-11-2015 a las 10:39:47
+-- Versión del servidor: 10.0.17-MariaDB
+-- Versión de PHP: 5.6.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -19,6 +19,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `encuesta_pw`
 --
+CREATE DATABASE IF NOT EXISTS `encuesta_pw` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `encuesta_pw`;
 
 -- --------------------------------------------------------
 
@@ -26,11 +28,11 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `acceso`
 --
 
-CREATE TABLE IF NOT EXISTS `acceso` (
+CREATE TABLE `acceso` (
   `id` int(11) NOT NULL,
   `usuario` text NOT NULL,
   `password` text NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `acceso`
@@ -45,24 +47,23 @@ INSERT INTO `acceso` (`id`, `usuario`, `password`) VALUES
 -- Estructura de tabla para la tabla `encuestas_rellenas`
 --
 
-CREATE TABLE IF NOT EXISTS `encuestas_rellenas` (
+CREATE TABLE `encuestas_rellenas` (
   `id` int(11) NOT NULL,
   `id_estudios` int(11) NOT NULL,
-  `hora_com` date NOT NULL,
-  `hora_fin` date NOT NULL,
+  `hora_com` time DEFAULT NULL,
+  `hora_fin` time DEFAULT NULL,
   `usuario` text NOT NULL,
   `titulacion` text NOT NULL,
   `biblioteca` text NOT NULL,
   `sexo` text NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `encuestas_rellenas`
 --
 
 INSERT INTO `encuestas_rellenas` (`id`, `id_estudios`, `hora_com`, `hora_fin`, `usuario`, `titulacion`, `biblioteca`, `sexo`) VALUES
-(1, 1, '2015-11-02', '2015-11-03', 'Estudiante', 'Grado en Ingeniería Informática', 'Biblioteca ESI', 'Hombre'),
-(2, 1, '2015-11-02', '2015-11-04', 'Profesor', 'Grado en Ingeniería informática', 'Biblioteca CASEM', 'Mujer');
+(18, 1, '00:47:38', '00:47:38', 'Estudiante', 'Grado en Ingeniería Informática', 'Biblioteca ESI', 'Hombre');
 
 -- --------------------------------------------------------
 
@@ -70,17 +71,18 @@ INSERT INTO `encuestas_rellenas` (`id`, `id_estudios`, `hora_com`, `hora_fin`, `
 -- Estructura de tabla para la tabla `estudios`
 --
 
-CREATE TABLE IF NOT EXISTS `estudios` (
+CREATE TABLE `estudios` (
   `id` int(11) NOT NULL,
   `nombre` text CHARACTER SET utf8 COLLATE utf8_unicode_ci
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='Listado de estudios';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Listado de estudios';
 
 --
 -- Volcado de datos para la tabla `estudios`
 --
 
 INSERT INTO `estudios` (`id`, `nombre`) VALUES
-(1, 'Grado en Ingeniería Informática');
+(1, 'Grado en Ingeniería Informática'),
+(2, 'Grado en Ingeniería Aeroespacial');
 
 -- --------------------------------------------------------
 
@@ -88,13 +90,13 @@ INSERT INTO `estudios` (`id`, `nombre`) VALUES
 -- Estructura de tabla para la tabla `preguntas`
 --
 
-CREATE TABLE IF NOT EXISTS `preguntas` (
+CREATE TABLE `preguntas` (
   `id` int(11) NOT NULL,
   `id_dimension` int(11) NOT NULL,
   `pregunta` text NOT NULL,
   `tipo` int(11) NOT NULL,
   `descripcion` text
-) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `preguntas`
@@ -136,20 +138,41 @@ INSERT INTO `preguntas` (`id`, `id_dimension`, `pregunta`, `tipo`, `descripcion`
 -- Estructura de tabla para la tabla `respuestas`
 --
 
-CREATE TABLE IF NOT EXISTS `respuestas` (
+CREATE TABLE `respuestas` (
   `id` int(11) NOT NULL,
   `id_encuesta_rellena` int(11) NOT NULL,
   `id_pregunta` int(11) NOT NULL,
   `respuesta` text
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `respuestas`
 --
 
 INSERT INTO `respuestas` (`id`, `id_encuesta_rellena`, `id_pregunta`, `respuesta`) VALUES
-(2, 1, 27, 'Hola!'),
-(3, 2, 30, 'si');
+(203, 18, 27, '7'),
+(204, 18, 28, '4'),
+(205, 18, 29, '9'),
+(206, 18, 30, '3'),
+(207, 18, 31, '6'),
+(208, 18, 32, '3'),
+(209, 18, 33, '7'),
+(210, 18, 34, '5'),
+(211, 18, 35, '3'),
+(212, 18, 36, '8'),
+(213, 18, 37, '3'),
+(214, 18, 38, '7'),
+(215, 18, 39, '5'),
+(216, 18, 40, '5'),
+(217, 18, 41, '6'),
+(218, 18, 42, '8'),
+(219, 18, 43, '6'),
+(220, 18, 44, '4'),
+(221, 18, 45, '7'),
+(222, 18, 46, '2'),
+(223, 18, 47, '3'),
+(224, 18, 48, '6'),
+(225, 18, 49, 'Me asustan las arañas del techo.');
 
 -- --------------------------------------------------------
 
@@ -157,11 +180,11 @@ INSERT INTO `respuestas` (`id`, `id_encuesta_rellena`, `id_pregunta`, `respuesta
 -- Estructura de tabla para la tabla `secciones`
 --
 
-CREATE TABLE IF NOT EXISTS `secciones` (
+CREATE TABLE `secciones` (
   `id` int(11) NOT NULL,
   `id_estudios` int(11) NOT NULL,
   `descripcion` text NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `secciones`
@@ -233,32 +256,32 @@ ALTER TABLE `secciones`
 -- AUTO_INCREMENT de la tabla `acceso`
 --
 ALTER TABLE `acceso`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT de la tabla `encuestas_rellenas`
 --
 ALTER TABLE `encuestas_rellenas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 --
 -- AUTO_INCREMENT de la tabla `estudios`
 --
 ALTER TABLE `estudios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `preguntas`
 --
 ALTER TABLE `preguntas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=50;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 --
 -- AUTO_INCREMENT de la tabla `respuestas`
 --
 ALTER TABLE `respuestas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=295;
 --
 -- AUTO_INCREMENT de la tabla `secciones`
 --
 ALTER TABLE `secciones`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- Restricciones para tablas volcadas
 --

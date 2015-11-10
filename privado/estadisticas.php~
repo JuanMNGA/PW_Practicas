@@ -1,7 +1,5 @@
 <?php
-	require_once("../login_stat.php");
   include('../funciones.php');
-  redireccion("../login_stat.php");
   conectar_bd();
 ?>
 <html>
