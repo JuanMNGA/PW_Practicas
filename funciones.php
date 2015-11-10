@@ -134,6 +134,8 @@
       		$id_observaciones = $fetch_id_observaciones["id"];
       		$value_respuesta = $_POST['observaciones'];
       		$consulta_observaciones = mysql_query("INSERT INTO `respuestas`(`id_encuesta_rellena`,`id_pregunta`,`respuesta`) VALUES ('".$last_encuesta_id."','".$id_observaciones."','".$value_respuesta."')");
+      		
+      	exit(header('Location: index.php'));
 	}
 
 ?>

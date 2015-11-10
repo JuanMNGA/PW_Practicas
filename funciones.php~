@@ -81,7 +81,7 @@
 		$nombre_biblioteca = $_POST['pregunta_biblioteca'];
 		$nombre_sexo = $_POST['pregunta_sexo'];
 		$nombre_tipo_usuario = $_POST['pregunta_tipo_usuario'];
-		$hora_com = $hora_fin = NULL;
+		$hora_com = $hora_fin = date("H:i:s");
 		//La hora se puede obtener como: date("H:i:s");
 		
 		switch($nombre_biblioteca){
@@ -134,6 +134,9 @@
       		$id_observaciones = $fetch_id_observaciones["id"];
       		$value_respuesta = $_POST['observaciones'];
       		$consulta_observaciones = mysql_query("INSERT INTO `respuestas`(`id_encuesta_rellena`,`id_pregunta`,`respuesta`) VALUES ('".$last_encuesta_id."','".$id_observaciones."','".$value_respuesta."')");
+      		
+      	header('Location: index.php');
+      	exit();
 	}
 
 ?>
